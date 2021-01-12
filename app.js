@@ -102,6 +102,8 @@ checkCodeOffline = function(code) {
                 working.push(`https://discord.gift/${code}`);
                 fs.writeFileSync(__dirname + '/codes.json', JSON.stringify(working, null, 4));
 
+            } else if(body.message === "You are being rate limited.\n") {
+                term.brightYellow("You are being rate limited!");        
             } else {
                 term.brightRed(`discord.com/gifts/${code} is an invalid code!\n`);
             }
